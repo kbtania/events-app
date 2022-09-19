@@ -29,6 +29,16 @@ const DUMMY_EVENTS = [
         image: 'images/extrovert-event.jpg',
         isFeatured: true,
     },
+    {
+        id: 'e4',
+        title: 'Cooking master class',
+        description:
+            'Cooking classes created for people of all skill levels. We will help you to take your cooking skills to the next level.',
+        location: 'Cool Street 14, 10113 Best City',
+        date: '2022-06-19',
+        image: 'images/cooking-event.jpg',
+        isFeatured: true,
+    },
 ];
 
 export function getFeaturedEvents() {

@@ -1,4 +1,4 @@
-import Header from '../components/header/header-item';
+import Header from '../components/layout/header-item';
 import Cover from '../components/cover/cover-block';
 import EventList from '../components/events/event-list';
 
@@ -10,7 +10,6 @@ export default function Home() {
   const featuredEvents = getFeaturedEvents();
   return (
     <div>
-      <Header />
       <Cover />
       <h2 className={styles.sectionTitle}>Featured Events</h2>
       <EventList items={featuredEvents} />

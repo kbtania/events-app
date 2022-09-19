@@ -17,7 +17,6 @@ a {
 
 header {
   text-align: center;
-  border: 2px solid red;
 }
 @media (prefers-color-scheme: dark) {
   html {
