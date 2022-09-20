@@ -10,7 +10,9 @@ function EventDetailPage() {
         return <h1>No Event Found</h1>
     }
     return <div>
-        Event Detail Page
+        <img src={`/${event.image}`} alt={event.title} />
+        <h1>{event.title}</h1>
+        <p>{event.description}</p>
     </div>
 }
 

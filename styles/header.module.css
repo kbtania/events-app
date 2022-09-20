@@ -1,0 +1,25 @@
+.header {
+    display: flex;
+    padding: 20px 0;
+    color: #E04DB0;
+    
+}
+.header > div {
+    margin: 0 10px;
+}
+.logo {
+    font-size: 22px;
+    font-weight: 700;
+}
+.menuItem {
+    font-size: 22px;
+}
+
+@media (max-width: 500px) {
+    .logo, .menuItem {
+        font-size: 18px;
+    }
+    .header > div {
+        margin: 0 5px;
+    }
+}
