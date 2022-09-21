@@ -1,14 +1,37 @@
 import { getEventById, getFeaturedEvents } from '../../helpers/api-util';
 
+import styles from '../../styles/events.module.css';
+
+import {
+    Box, Button, CardActionArea, CardActions, CardContent, Card, CardMedia, Typography, Container,
+} from '@mui/material';
+import LocationOnIcon from '@mui/icons-material/LocationOn';
+import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
+import ArrowForwardOutlinedIcon from '@mui/icons-material/ArrowForwardOutlined';
+
 function EventDetailPage(props) {
     const event = props.selectedEvent;
     if (!event) {
         console.log('FALSE')
         return <h1 className='center pink'>No Event Found</h1>
     }
+    const formattedAddress = event.location.replace(', ', '\n');
+    const formattedDate = new Date(event.date).toLocaleDateString('en-US', {
+        day: 'numeric',
+        month: 'long',
+        year: 'numeric'
+    });
     return <div>
-        <img src={`/${event.image}`} alt={event.title} />
-        <h1>{event.title}</h1>
+        <h1 className={`center ${styles.main}`}>{event.title}</h1>
+        <img className={styles.eventImage} src={`/${event.image}`} alt={event.title} />
+        <Typography variant="body2" color="text.secondary" className="center" sx={{ margin: '20px' }}>
+            <LocationOnIcon sx={{ fontSize: '16px', marginRight: '5px' }} />
+            {formattedAddress}
+        </Typography>
+        <Typography variant="body2" color="text.secondary" className="center">
+            <CalendarTodayIcon sx={{ fontSize: '16px', marginRight: '5px' }} />
+            {formattedDate}
+        </Typography>
         <p>{event.description}</p>
     </div>
 }
