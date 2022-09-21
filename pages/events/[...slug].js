@@ -5,6 +5,8 @@ import { getFilteredEvents } from '../../helpers/api-util';
 import EventList from './../../components/events/event-list';
 import EventDate from './../../components/events/event-date';
 
+import Head from 'next/head';
+
 function FilteredEventsPage(props) {
     const router = useRouter();
     const filterData = router.query.slug;
@@ -17,6 +19,9 @@ function FilteredEventsPage(props) {
 
     const date = new Date(props.date.year, props.date.month - 1);
     return <div>
+        <Head>
+            <title>Filtered Events</title>
+        </Head>
         <EventDate date={date} />
         <EventList items={props.events} />
     </div>

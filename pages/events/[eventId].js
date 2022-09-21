@@ -3,16 +3,15 @@ import { getEventById, getFeaturedEvents } from '../../helpers/api-util';
 import styles from '../../styles/events.module.css';
 
 import {
-    Box, Button, CardActionArea, CardActions, CardContent, Card, CardMedia, Typography, Container,
+    Typography,
 } from '@mui/material';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
-import ArrowForwardOutlinedIcon from '@mui/icons-material/ArrowForwardOutlined';
+import Head from 'next/head';
 
 function EventDetailPage(props) {
     const event = props.selectedEvent;
     if (!event) {
-        console.log('FALSE')
         return <h1 className='center pink'>No Event Found</h1>
     }
     const formattedAddress = event.location.replace(', ', '\n');
@@ -22,6 +21,9 @@ function EventDetailPage(props) {
         year: 'numeric'
     });
     return <div>
+        <Head>
+            <title>{event.title}</title>
+        </Head>
         <h1 className={`center ${styles.main}`}>{event.title}</h1>
         <img className={styles.eventImage} src={`/${event.image}`} alt={event.title} />
         <Typography variant="body2" color="text.secondary" className="center" sx={{ margin: '20px' }}>
