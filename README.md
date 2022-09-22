@@ -18,7 +18,7 @@ This is a simple [Next.js](https://nextjs.org/) project.
 - MongoDB
 - MaterialUI
 
-### Local Run
+### Development Mode
 
 First, run the development server:
 
