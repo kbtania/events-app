@@ -1,9 +1,11 @@
 import { getEventById, getFeaturedEvents } from '../../helpers/api-util';
 
 import styles from '../../styles/events.module.css';
+import Image from 'next/image';
+
 
 import {
-    Typography,
+    Typography, Box
 } from '@mui/material';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
@@ -27,7 +29,9 @@ function EventDetailPage(props) {
             <title>{event.title}</title>
         </Head>
         <h1 className={`center ${styles.main}`}>{event.title}</h1>
-        <img className={styles.eventImage} src={`/${event.image}`} alt={event.title} />
+        <Box display="flex"
+            justifyContent="center"
+            alignItems="center"><Image className={styles.eventImage} src={`/${event.image}`} alt={event.title} m="auto" width={440} height={340} /></Box>
         <Typography variant="body2" color="text.secondary" className="center" sx={{ margin: '20px' }}>
             <LocationOnIcon sx={{ fontSize: '16px', marginRight: '5px' }} />
             {formattedAddress}

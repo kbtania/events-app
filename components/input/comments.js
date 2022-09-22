@@ -23,6 +23,13 @@ function Comments(props) {
 
     }
 
+    function loadComments() {
+        if (eventId) {
+            fetch('/api/comments/' + eventId)
+                .then((response) => response.json())
+                .then((data) => setComments(data.comments))
+        }
+    }
     function addCommentHandler(commentData) {
         // send data to API
         fetch('/api/comments/' + eventId, {
@@ -34,6 +41,7 @@ function Comments(props) {
         })
             .then((response) => response.json())
             .then((data) => console.log(data))
+        loadComments();
     }
 
     return (
