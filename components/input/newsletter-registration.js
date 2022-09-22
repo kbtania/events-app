@@ -1,22 +1,32 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 
 import classes from './newsletter-registration.module.css';
 
 function NewsletterRegistration() {
+    const [error, setError] = useState(false);
+    const [message, setMessage] = useState('');
     const emailInputRef = useRef();
     // console.log(enteredEmail);
     function registrationHandler(event) {
         event.preventDefault();
-        const enteredEmail = emailInputRef.current.value;
-        fetch('/api/newsletter', {
-            method: 'POST',
-            body: JSON.stringify({ email: enteredEmail }),
-            headers: {
-                'Content-Type': 'application/json',
-            }
-        })
-            .then((response) => response.json())
-            .then((data) => console.log(data));
+        let enteredEmail = emailInputRef.current.value;
+        if (enteredEmail.length !== 0 && enteredEmail.includes('@')) {
+            setError(false);
+            fetch('/api/newsletter', {
+                method: 'POST',
+                body: JSON.stringify({ email: enteredEmail }),
+                headers: {
+                    'Content-Type': 'application/json',
+                }
+            })
+                .then((response) => response.json())
+                .then((data) => setMessage(data.message));
+            emailInputRef.current.value = ''
+
+        } else {
+            setError(true);
+        }
+
     }
 
 
@@ -35,6 +45,8 @@ function NewsletterRegistration() {
                     <button>Register</button>
                 </div>
             </form>
+            {message && <p className={classes.message}>{message}</p>}
+            {error && <p className={classes.messageError}>Invalid email</p>}
         </section>
     );
 }

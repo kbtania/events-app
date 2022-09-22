@@ -41,3 +41,17 @@
   .control input {
     flex: 1;
   }
+  .message {
+    background-color: rgb(59, 136, 52);
+    border-radius: 15px;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+  }
+  .messageError{
+    background-color: rgb(199, 72, 72);
+    border-radius: 15px;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+  }

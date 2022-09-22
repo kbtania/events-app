@@ -55,7 +55,7 @@ function EventsSearch(props) {
                     }
                 </Select>
             </FormControl>
-            <FormControl fullWidth>
+            <FormControl fullWidth sx={{ margin: '10px 0' }}>
                 <InputLabel id="year">Year</InputLabel>
                 <Select
                     ref={yearRef}
@@ -71,10 +71,10 @@ function EventsSearch(props) {
                     }
                 </Select>
             </FormControl>
-            <Button size="small" variant="outlined" sx={{ color: '#E04DB0', border: '1px solid #AB46D2' }} onClick={submitHandler}>
+            <Button size="small" variant="outlined" sx={{ margin: '20px 0', color: '#E04DB0', border: '1px solid #AB46D2' }} onClick={submitHandler}>
                 Search
             </Button>
-        </Box>
+        </Box >
     );
 }
 
