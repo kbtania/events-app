@@ -9,6 +9,8 @@ import LocationOnIcon from '@mui/icons-material/LocationOn';
 import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
 import Head from 'next/head';
 
+import Comments from '../../components/input/comments';
+
 function EventDetailPage(props) {
     const event = props.selectedEvent;
     if (!event) {
@@ -35,6 +37,7 @@ function EventDetailPage(props) {
             {formattedDate}
         </Typography>
         <p>{event.description}</p>
+        <Comments eventId={event.id} />
     </div>
 }
 

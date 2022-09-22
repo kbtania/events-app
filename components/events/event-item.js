@@ -6,6 +6,7 @@ import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
 import ArrowForwardOutlinedIcon from '@mui/icons-material/ArrowForwardOutlined';
 
 import Link from 'next/link';
+import Image from 'next/image';
 
 function EventItem(props) {
     const { title, image, date, location, id } = props.event;
@@ -22,12 +23,8 @@ function EventItem(props) {
             <Container>
                 <Card sx={{ maxWidth: 355, minHeight: 180 }}>
                     <CardActionArea>
-                        <CardMedia
-                            component="img"
-                            // height="180"
-                            src={`/${image}`}
-                            alt={title}
-                        />
+                        <Image src={`/${image}`}
+                            alt={title} width={340} height={240} />
                         <CardContent>
                             <Typography gutterBottom variant="h5" component="div">
                                 {title}
